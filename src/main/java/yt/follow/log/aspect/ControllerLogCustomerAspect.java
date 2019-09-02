@@ -43,6 +43,9 @@ public class ControllerLogCustomerAspect {
 		if (null != requestAttributes) {
 			startTime.set(System.currentTimeMillis());
 			HttpServletRequest request = requestAttributes.getRequest();
+			if(null != request.getHeader(Constant.LOG_REQUEST_ID)) {
+				MDC.put(Constant.LOG_REQUEST_ID, request.getHeader(Constant.LOG_REQUEST_ID));
+			}
 			log.info("REQUEST==URL:{},args:{}", request.getRequestURL(), joinPoint.getArgs());
 		}
 	}
