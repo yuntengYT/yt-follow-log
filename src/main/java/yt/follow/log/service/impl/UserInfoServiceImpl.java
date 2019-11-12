@@ -14,7 +14,9 @@ import yt.follow.log.model.UserInfoVO;
 import yt.follow.log.service.IUserInfoService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author yunteng
@@ -33,6 +35,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
 		if(CollectionUtils.isEmpty(list)) {
 			return new ArrayList<>();
 		}
+		Map<Integer,Integer> map = new HashMap<>();
 		List<UserInfoVO> retList = new ArrayList<>();
 		list.forEach(userInfoDO -> {
 			UserInfoVO userInfoVO = new UserInfoVO();
